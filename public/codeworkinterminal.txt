@@ -1,0 +1,14 @@
+router.post('/qrgenerator',async (req, res) => {
+    const {text} = req.body;
+    console.log(text);
+    if(!text) {
+        res.status(400).send('please enter string / url');
+    } else {
+        const qrImage= await QRCode.toDataURL(text);
+        const qrImageData = qrImage.replace(/^data:image\/png;base64,/, "");
+        res.setHeader('Content-type','image/png');
+        res.setHeader('Content-Disposition', 'attachment; filename=qrcode.png');
+        const img=Buffer.from(qrImageData,"base64");
+        res.send(img);
+    }
+})

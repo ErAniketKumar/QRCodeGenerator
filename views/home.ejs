@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+<div class="container">
+	<h1>QR Code Generator</h1>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<form id="qrForm">
+				<input
+					type="text"
+					placeholder="Enter any URL or any string"
+					name="text"
+				/>
+				<input type="submit" value="Generate" />
+			</form>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12 qr-image">
+			<h2>QR Image</h2>
+			<div id="qrCode"></div>
+			<a href="#" id="downloadBtn" class="download-btn" download>Download</a>
+		</div>
+	</div>
+</div>
+<%- include('./partials/footer.ejs') %>
